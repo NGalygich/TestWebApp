@@ -5,7 +5,7 @@
 ::Employees (Id, FirstName, MiddleName, LastName, PositionCode, DepartmentCode, BirthDate, Email, WorkPhone, Gender, IsHidden, LastModified)
 
 ::.\sqlite3.exe TestDB.db "insert into Employees values ('1','Иванов', 'Иван', 'Иванович', '1', '0', '1990.01.01', 'ivanov@mail.com', '98887776655', '2', '0', date('now', '-5 months', '-3 days'))"
-::.\sqlite3.exe TestDB.db "insert into Employees values ('2', 'Петров', 'Владимир', 'Петрович', '10', '1', '1991.01.01', 'petrov@mail.com', NULL, '2', '0', date('now', '-4 months', '-3 days'))"
+.\sqlite3.exe TestDB.db "insert into Employees values ('2',"'+unicode('Петров', 'utf-8')+'", 'Владимир', 'Петрович', '10', '1', '1991.01.01', 'petrov@mail.com', NULL, '2', '0', date('now', '-4 months', '-3 days'))"
 ::.\sqlite3.exe TestDB.db "insert into Employees values ('3','Сидоров', 'Петр', 'Дмитриевич', '101', '1', '1992.01.01', 'sidorov@mail.com', '98881112233', '2', '0', date('now', '-4 months', '-4 days'))"
 ::.\sqlite3.exe TestDB.db "insert into Employees values ('4','Смирнов', 'Дмитрий', 'Иванов', '102', '1', '1993.01.01', 'smirnov@mail.com', '98886668844', '2', '0', date('now', '-4 months', '-4 days'))"
 ::.\sqlite3.exe TestDB.db "insert into Employees values ('5','Соколов', 'Иван', 'Михайлович', '103', '1', '1994.01.01', 'sokolov@mail.com', '98881115533', '2', '0', date('now', '-5 months', '-4 days'))"
