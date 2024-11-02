@@ -7,6 +7,7 @@ namespace TestWebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly MyDbContext _myDbContext = new MyDbContext();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -15,13 +16,8 @@ namespace TestWebApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var employee = _myDbContext.Employees.First();
+            return View(employee);
         }
     }
 }
