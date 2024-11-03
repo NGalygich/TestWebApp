@@ -1,7 +1,13 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using SQLitePCL;
+using TestWebApp.Models;
 
-var builder = WebApplication.CreateBuilder(args);
+
+
+//var builder = WebApplication.CreateBuilder(args);
 
 //неправильно заполнил таблицу (ПЕРЕДЕЛАТЬ!)
 
@@ -39,24 +45,56 @@ var builder = WebApplication.CreateBuilder(args);
 //}
 #endregion
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+//// Add services to the container.
+//builder.Services.AddControllersWithViews();
+//builder.Services.AddControllers();
 
-var app = builder.Build();
+//var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+//// Configure the HTTP request pipeline.
+//if (!app.Environment.IsDevelopment())
+//{
+//    app.UseExceptionHandler("/Home/Error");
+//}
+//app.UseStaticFiles();
+
+//app.UseRouting();
+
+//app.UseAuthorization();
+
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+//app.Run();
+
+//var builder = WebApplication.CreateBuilder(args);
+
+//builder.Services.AddControllers();  // добавляем поддержку контроллеров
+
+//var app = builder.Build();
+
+//// устанавливаем сопоставление маршрутов с контроллерами
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//app.Run();
+namespace TestWebApp
 {
-    app.UseExceptionHandler("/Home/Error");
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+    }
 }
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.Run();

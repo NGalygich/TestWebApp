@@ -2,6 +2,7 @@
 using System.Reflection.Metadata;
 using System.Reflection;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TestWebApp.Models
 {
@@ -15,8 +16,8 @@ namespace TestWebApp.Models
         public string PositionCode { get; set; }
         public string DepartmentCode { get; set; }
         public DateTime BirthDate { get; set; }
-        public string Email { get; set; }
-        public string WorkPhone { get; set; }
+        public string? Email { get; set; }
+        public string? WorkPhone { get; set; }
         public int Gender { get; set; }
         public bool IsHidden { get; set; }
         public DateTime LastModified { get; set; }
